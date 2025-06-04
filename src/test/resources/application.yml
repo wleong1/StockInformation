@@ -1,0 +1,60 @@
+newsapi:
+  key: apikey
+  url: http://localhost:8091
+  timeout: 3s
+
+alphavantageapi:
+  key: apikey
+  url: http://localhost:8089
+  timeout: 3s
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    defer-datasource-initialization: true
+    database-platform: org.hibernate.dialect.H2Dialect
+  sql:
+    init:
+      mode: never
+
+resilience4j:
+  circuitbreaker:
+    circuitBreakerAspectOrder: 1
+    configs:
+      default:
+        registerHealthIndicator: false
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 10
+        automaticTransitionFromOpenToHalfOpenEnabled: false
+        waitDurationInOpenState: 1s
+        permittedNumberOfCallsInHalfOpenState: 2
+        slidingWindowSize: 60
+        slidingWindowType: TIME_BASED
+        eventConsumerBufferSize: 10
+        ignoreExceptions:
+          - org.springframework.web.client.HttpClientErrorException
+    instances:
+      newsServiceInstance:
+        baseConfig: default
+  retry:
+    retryAspectOrder: 2
+    configs:
+      default:
+        maxAttempts: 3
+        waitDuration: 1s
+        retryExceptions:
+          - org.springframework.web.client.HttpServerErrorException
+    instances:
+      newsServiceInstance:
+        baseConfig: default
+
+logging:
+  level:
+    io.github.resilience4j.retry: DEBUG
+    io.github.resilience4j.circuitbreaker: DEBUG
