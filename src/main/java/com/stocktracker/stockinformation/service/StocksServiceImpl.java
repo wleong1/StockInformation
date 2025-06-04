@@ -22,13 +22,13 @@ import java.util.Optional;
 public class StocksServiceImpl implements StocksService{
 
     @Autowired
-    private StocksRepository stocksRepository;
+    StocksRepository stocksRepository;
 
     @Autowired
-    private CompanyRepository companyRepository;
+    CompanyRepository companyRepository;
 
     @Autowired
-    private PriceService priceService;
+    PriceService priceService;
 
     private Stock createStock(
             Company company,

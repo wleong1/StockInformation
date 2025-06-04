@@ -1,11 +1,9 @@
 package com.stocktracker.stockinformation.service;
 
 
-import com.stocktracker.stockinformation.exception.ApiException;
 import com.stocktracker.stockinformation.model.AlphaVantageApiResponse;
 import com.stocktracker.stockinformation.model.DailyQuote;
 import com.stocktracker.stockinformation.model.MetaData;
-import org.apache.coyote.BadRequestException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

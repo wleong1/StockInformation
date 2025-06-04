@@ -21,10 +21,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class PriceControllerTest {
 
     @Autowired
-    private MockMvc mockMvc;
+    MockMvc mockMvc;
 
     @MockitoBean
-    private PriceServiceImpl priceServiceImpl;
+    PriceServiceImpl priceServiceImpl;
 
     private final String SYMBOL = "AAPL";
 

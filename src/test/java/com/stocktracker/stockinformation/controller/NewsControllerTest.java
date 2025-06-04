@@ -24,10 +24,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class NewsControllerTest {
 
     @Autowired
-    private MockMvc mockMvc;
+    MockMvc mockMvc;
 
     @MockitoBean
-    private NewsServiceImpl newsServiceImpl;
+    NewsServiceImpl newsServiceImpl;
 
     private final String SYMBOL = "AAPL";
 

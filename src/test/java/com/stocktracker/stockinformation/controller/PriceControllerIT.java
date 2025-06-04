@@ -14,10 +14,8 @@ import org.wiremock.spring.ConfigureWireMock;
 import org.wiremock.spring.EnableWireMock;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import static org.hamcrest.CoreMatchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)

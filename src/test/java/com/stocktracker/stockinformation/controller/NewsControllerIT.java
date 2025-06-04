@@ -35,13 +35,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class NewsControllerIT {
 
     @Autowired
-    private MockMvc mockMvc;
+    MockMvc mockMvc;
 
     @Autowired
-    private NewsController newsController;
+    NewsController newsController;
 
     @Autowired
-    private CircuitBreakerRegistry circuitBreakerRegistry;
+    CircuitBreakerRegistry circuitBreakerRegistry;
 
     @BeforeEach
     public void setUp() {
