@@ -42,6 +42,7 @@ public class PriceServiceImpl implements PriceService {
     private AlphaVantageApiResponse fetchTimeSeries(String symbol) {
         String uri = generateUriString(symbol);
         try {
+            log.info("Calling Alpha Vantage API with symbol: {}", symbol);
             return restClient.get()
                     .uri(uri)
                     .retrieve()
