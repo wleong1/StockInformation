@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  spring-boot-app:
+    build: .
+    container_name: stocks-information
+    ports:
+      - "8080:8080"
+    networks:
+      - stocks-network
+
+# Shared network for microservices
+networks:
+  stocks-network:
+    name: stocks-network
